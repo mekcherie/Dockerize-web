@@ -47,7 +47,7 @@ def create():
             'name': request.form.get('plant_name'),
             'variety': request.form.get('variety'),
             'photo_url': request.form.get('photo'),
-            'date_harvested': request.form.get('date_harvested')
+            'date_planted': request.form.get('date_planted')
         }
         # TODO: Make an `insert_one` database call to insert the object into the
         # database's `plants` collection, and get its inserted id. Pass the 
@@ -69,7 +69,7 @@ def detail(plant_id):
     # plant's id.
     # HINT: This query should be on the `harvests` collection, not the `plants`
     # collection.
-    harvests = mongo.db.plants.find({'plant_id': plant_id})
+    harvests = mongo.db.harvests.find({'plant_id': plant_id})
 
     context = {
         'plant' : plant_to_show,
